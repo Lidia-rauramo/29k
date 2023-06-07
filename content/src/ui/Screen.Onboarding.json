@@ -1,5 +1,6 @@
 {
   "en": {
+    "privacyNotice": "Privacy Notice",
     "start": {
       "heading1": "A thriving planet starts with",
       "heading2": "a thriving you"
@@ -24,13 +25,13 @@
       "sessions__text": "Guided experiences for\nnew perspectives on life.\n\nOn your own, with\nfriends or new connections.",
       "journey__text": "Your own personal path\ntowards a more thriving life."
     },
+    "privacyNoticeUrl": "https://wiki.29k.org/aware-privacy-notice",
     "skipButton": "Skip",
     "continueButton": "Continue",
-    "getStartedButton": "Get started",
-    "privacyNotice": "Privacy Notice",
-    "privacyNoticeUrl": "https://wiki.29k.org/aware-privacy-notice"
+    "getStartedButton": "Get started"
   },
   "pt": {
+    "privacyNotice": "Privacidade",
     "start": {
       "heading1": "Um planeta próspero começa com",
       "heading2": "um eu próspero"
@@ -55,6 +56,7 @@
       "sessions__text": "Experiências guiadas para\nnovas perspetivas de vida.\n\nIndividualmente, com\nos amigos ou novas ligações.",
       "journey__text": "O teu caminho pessoal\npara uma vida mais próspera."
     },
+    "privacyNoticeUrl": "https://wiki.29k.org/aware-privacy-notice",
     "skipButton": "Ignorar",
     "continueButton": "Continuar",
     "getStartedButton": "Começar"
