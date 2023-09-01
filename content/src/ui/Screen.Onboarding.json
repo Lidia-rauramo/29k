@@ -1,5 +1,6 @@
 {
   "en": {
+    "privacyNotice": "Privacy Notice",
     "start": {
       "heading1": "A thriving planet starts with",
       "heading2": "a thriving you"
@@ -24,11 +25,10 @@
       "sessions__text": "Guided experiences for\nnew perspectives on life.\n\nOn your own, with\nfriends or new connections.",
       "journey__text": "Your own personal path\ntowards a more thriving life."
     },
+    "privacyNoticeUrl": "https://wiki.29k.org/aware-privacy-notice",
     "skipButton": "Skip",
     "continueButton": "Continue",
-    "getStartedButton": "Get started",
-    "privacyNotice": "Privacy Notice",
-    "privacyNoticeUrl": "https://wiki.29k.org/aware-privacy-notice"
+    "getStartedButton": "Get started"
   },
   "pt": {
     "start": {
@@ -59,6 +59,36 @@
     "continueButton": "Continuar",
     "getStartedButton": "Começar"
   },
-  "sv": {},
+  "sv": {
+    "privacyNotice": "Integritet",
+    "start": {
+      "heading1": "En välmående planet börjar med",
+      "heading2": "att du mår bra"
+    },
+    "page1": {
+      "heading__text": "Forskningsbaserade\npsykologiska verktyg"
+    },
+    "page2": {
+      "heading__text": "Meningsfulla\nkontakter",
+      "name1": "Ints",
+      "name2": "Jenny",
+      "name3": "Lisa"
+    },
+    "page3": {
+      "heading__text": "För allas\nbästa",
+      "card": {
+        "heading": "Icke vinst-drivande",
+        "text__markdown": "Vi är gratis för personligt bruk.\\\nVi säljer ingen data. Vi har inga annonser.\\\nSå att du kan koncentrera dig på att att lära dig hantera livet, må bättre och bidra till en bättre framtid för alla."
+      }
+    },
+    "page4": {
+      "sessions__text": "Guidade upplevelser för \nnya perspektiv på livet.\n\nPå egen hand, med\nvänner eller med alla.",
+      "journey__text": "Din personliga plan\nför att ta hand om dig."
+    },
+    "privacyNoticeUrl": "https://wiki.29k.org/aware-privacy-notice",
+    "skipButton": "Hoppa över",
+    "continueButton": "Forsätt",
+    "getStartedButton": "Kom igång"
+  },
   "es": {}
 }
