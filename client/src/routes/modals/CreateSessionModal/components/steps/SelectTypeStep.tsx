@@ -42,7 +42,7 @@ import {NativeStackNavigationProp} from '@react-navigation/native-stack';
 import useGetExerciseById from '../../../../../lib/content/hooks/useGetExerciseById';
 import {formatContentName} from '../../../../../lib/utils/string';
 import Image from '../../../../../lib/components/Image/Image';
-import {ActivityIndicator, ListRenderItem, Share} from 'react-native';
+import {ActivityIndicator, ListRenderItem, Share, View} from 'react-native';
 import SessionCard from '../../../../../lib/components/Cards/SessionCard/SessionCard';
 import {Heading18} from '../../../../../lib/components/Typography/Heading/Heading';
 import {BottomSheetFlatList} from '@gorhom/bottom-sheet';
@@ -59,6 +59,9 @@ import {ThumbsUpWithoutPadding} from '../../../../../lib/components/Thumbs/Thumb
 import useExerciseRating from '../../../../../lib/session/hooks/useExerciseRating';
 import useExerciseFeedback from '../../../../../lib/session/hooks/useExerciseFeedback';
 import FeedbackCarousel from '../../../../../lib/components/FeedbackCarousel/FeedbackCrousel';
+import ExerciseCardContainer from '../../../../../lib/components/Cards/SessionCard/ExerciseCardContainer';
+import useGetExercisesByTags from '../../../../../lib/content/hooks/useGetExercisesByTags';
+import {Tag as TagType} from '../../../../../../../shared/src/types/generated/Tag';
 
 const TypeItemWrapper = styled.View<{isLast?: boolean}>(({isLast}) => ({
   flexDirection: 'row',
@@ -173,10 +176,13 @@ const SelectTypeStep: React.FC<StepProps> = ({
   const [isLoadingSessions, setIsLoadingSessions] = useState(false);
   const {rating} = useExerciseRating(selectedExercise);
   const {feedback} = useExerciseFeedback(selectedExercise);
-
   const exercise = useMemo(
     () => (selectedExercise ? getExerciseById(selectedExercise) : null),
     [getExerciseById, selectedExercise],
+  );
+  const exercisesByTags = useGetExercisesByTags(
+    exercise?.tags as TagType[],
+    exercise?.id,
   );
 
   useEffect(() => {
@@ -367,6 +373,23 @@ const SelectTypeStep: React.FC<StepProps> = ({
                   <Spacer8 />
                   <FeedbackCarousel feedbackItems={feedback} />
                 </>
+              )}
+              {Boolean(exercisesByTags?.length) && (
+                <Gutters>
+                  <Spacer24 />
+                  <Heading18>{t('moreLikeThis')}</Heading18>
+                  <Spacer8 />
+                  <View>
+                    {exercisesByTags.map((e, idx) => (
+                      <ExerciseCardContainer
+                        key={e.id}
+                        exercise={e}
+                        hasCardBefore={idx !== 0}
+                        hasCardAfter={idx < exercisesByTags.length - 1}
+                      />
+                    ))}
+                  </View>
+                </Gutters>
               )}
             </>
           }

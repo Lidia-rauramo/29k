@@ -54,6 +54,9 @@ import Tag from '../../../lib/components/Tag/Tag';
 import useGetTagsById from '../../../lib/content/hooks/useGetTagsById';
 import {Heading18} from '../../../lib/components/Typography/Heading/Heading';
 import {openUrl} from 'react-native-markdown-display';
+import ExerciseCardContainer from '../../../lib/components/Cards/SessionCard/ExerciseCardContainer';
+import useGetExercisesByTags from '../../../lib/content/hooks/useGetExercisesByTags';
+import {Tag as TagType} from '../../../../../shared/src/types/generated/Tag';
 
 const Content = styled(Gutters)({
   justifyContent: 'space-between',
@@ -115,7 +118,10 @@ const CompletedSessionModal = () => {
   const tags = useGetTagsById(exercise?.tags);
   const {getSharingPostForSession} = useSharingPosts(exercise?.id);
   const getFeedbackBySessionId = useGetFeedbackBySessionId();
-
+  const exercisesByTags = useGetExercisesByTags(
+    exercise?.tags as TagType[],
+    exercise?.id,
+  );
   const sessionTime = useMemo(() => dayjs(timestamp), [timestamp]);
 
   const onStartSession = useCallback(() => {
@@ -309,6 +315,23 @@ const CompletedSessionModal = () => {
           </Gutters>
         )}
         <Spacer32 />
+        {Boolean(exercisesByTags?.length) && (
+          <Gutters>
+            <Spacer24 />
+            <Heading18>{t('moreLikeThis')}</Heading18>
+            <Spacer8 />
+            <View>
+              {exercisesByTags.map((e, idx) => (
+                <ExerciseCardContainer
+                  key={e.id}
+                  exercise={e}
+                  hasCardBefore={idx !== 0}
+                  hasCardAfter={idx < exercisesByTags.length - 1}
+                />
+              ))}
+            </View>
+          </Gutters>
+        )}
       </BottomSheetScrollView>
     </SheetModal>
   );
